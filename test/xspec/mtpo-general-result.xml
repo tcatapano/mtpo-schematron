@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="file:/O:/github/xspec/src/compiler/format-xspec-report.xsl"?>
+<x:report xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          xmlns:test="http://www.jenitennison.com/xslt/unit-test"
+          xmlns:x="http://www.jenitennison.com/xslt/xspec"
+          xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+          stylesheet="o:/github/mtpo-schematron/test/../schema/mtpo-general.sch-compiled.xsl"
+          date="2018-04-03T13:08:16.256-07:00"
+          xspec="file:/o:/github/mtpo-schematron/test/mtpo-general.xspec"
+          schematron="file:/o:/github/mtpo-schematron/schema/mtpo-general.sch">
+   <x:scenario>
+      <x:label>general-0001</x:label>
+      <x:scenario>
+         <x:label>correct</x:label>
+         <x:context href="file:///o:/github/mtpo-schematron/test/xspec/context-d1e8.xml"/>
+         <x:result>
+            <svrl:schematron-output xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                                    xmlns:saxon="http://saxon.sf.net/"
+                                    xmlns:schold="http://www.ascc.net/xml/schematron"
+                                    xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+                                    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                                    title=""
+                                    schemaVersion=""><!--   
+		   
+		   
+		 -->
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e8.xml"/>
+               <svrl:fired-rule context="*[@xml:id]"/>
+               <svrl:fired-rule context="*[@xml:id]"/>
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e8.xml"/>
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e8.xml"/>
+            </svrl:schematron-output>
+         </x:result>
+         <x:test successful="true">
+            <x:label>not report general-0001</x:label>
+            <x:expect select="()"/>
+         </x:test>
+      </x:scenario>
+      <x:scenario>
+         <x:label>incorrect repeated xml:id</x:label>
+         <x:context href="file:///o:/github/mtpo-schematron/test/xspec/context-d1e23.xml"/>
+         <x:result>
+            <svrl:schematron-output xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                                    xmlns:saxon="http://saxon.sf.net/"
+                                    xmlns:schold="http://www.ascc.net/xml/schematron"
+                                    xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+                                    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                                    title=""
+                                    schemaVersion=""><!--   
+		   
+		   
+		 -->
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e23.xml"/>
+               <svrl:fired-rule context="*[@xml:id]"/>
+               <svrl:fired-rule context="*[@xml:id]"/>
+               <svrl:successful-report test="preceding::*/@xml:id[ normalize-space(.) = $myID ]"
+                                       id="general-0001"
+                                       location="/div0[1]/divb[1]">
+                  <svrl:text>The @xml:id "div001" on &lt;divb&gt; duplicates an @xml:id found earlier in the document: div001 on diva</svrl:text>
+               </svrl:successful-report>
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e23.xml"/>
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e23.xml"/>
+            </svrl:schematron-output>
+         </x:result>
+         <x:test successful="true">
+            <x:label>report general-0001</x:label>
+            <x:expect select="()"/>
+         </x:test>
+      </x:scenario>
+   </x:scenario>
+   <x:scenario>
+      <x:label>general-0002</x:label>
+      <x:scenario>
+         <x:label>correct-TEI.2</x:label>
+         <x:context href="file:///o:/github/mtpo-schematron/test/xspec/context-d1e41.xml"/>
+         <x:result>
+            <svrl:schematron-output xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                                    xmlns:saxon="http://saxon.sf.net/"
+                                    xmlns:schold="http://www.ascc.net/xml/schematron"
+                                    xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+                                    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                                    title=""
+                                    schemaVersion=""><!--   
+		   
+		   
+		 -->
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e41.xml"/>
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e41.xml"/>
+               <svrl:fired-rule context="TEI.2"/>
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e41.xml"/>
+            </svrl:schematron-output>
+         </x:result>
+         <x:test successful="true">
+            <x:label>not assert general-0002.01</x:label>
+            <x:expect select="()"/>
+         </x:test>
+      </x:scenario>
+      <x:scenario>
+         <x:label>correct-TEI</x:label>
+         <x:context href="file:///o:/github/mtpo-schematron/test/xspec/context-d1e58.xml"/>
+         <x:result>
+            <svrl:schematron-output xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                                    xmlns:saxon="http://saxon.sf.net/"
+                                    xmlns:schold="http://www.ascc.net/xml/schematron"
+                                    xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+                                    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                                    title=""
+                                    schemaVersion=""><!--   
+		   
+		   
+		 -->
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e58.xml"/>
+               <svrl:fired-rule context="*[@xml:id]"/>
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e58.xml"/>
+               <svrl:fired-rule context="TEI"/>
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e58.xml"/>
+            </svrl:schematron-output>
+         </x:result>
+         <x:test successful="true">
+            <x:label>not assert general-0002.02</x:label>
+            <x:expect select="()"/>
+         </x:test>
+      </x:scenario>
+      <x:scenario>
+         <x:label>incorrect non matching TEI.2 id</x:label>
+         <x:context href="file:///o:/github/mtpo-schematron/test/xspec/context-d1e75.xml"/>
+         <x:result>
+            <svrl:schematron-output xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                                    xmlns:saxon="http://saxon.sf.net/"
+                                    xmlns:schold="http://www.ascc.net/xml/schematron"
+                                    xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+                                    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                                    title=""
+                                    schemaVersion=""><!--   
+		   
+		   
+		 -->
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e75.xml"/>
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e75.xml"/>
+               <svrl:fired-rule context="TEI.2"/>
+               <svrl:failed-assert test="@id = descendant::idno[@type = 'LOCAL']"
+                                   id="general-0002.01"
+                                   location="/TEI.2[1]">
+                  <svrl:text>The element TEI.2 must have an id attribute with its value equal to a descendant idno element with type = 'LOCAL'</svrl:text>
+               </svrl:failed-assert>
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e75.xml"/>
+            </svrl:schematron-output>
+         </x:result>
+         <x:test successful="true">
+            <x:label>assert general-0002.01</x:label>
+            <x:expect select="()"/>
+         </x:test>
+      </x:scenario>
+      <x:scenario>
+         <x:label>incorrect non matching TEI xml:id</x:label>
+         <x:context href="file:///o:/github/mtpo-schematron/test/xspec/context-d1e92.xml"/>
+         <x:result>
+            <svrl:schematron-output xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                                    xmlns:saxon="http://saxon.sf.net/"
+                                    xmlns:schold="http://www.ascc.net/xml/schematron"
+                                    xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+                                    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                                    title=""
+                                    schemaVersion=""><!--   
+		   
+		   
+		 -->
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e92.xml"/>
+               <svrl:fired-rule context="*[@xml:id]"/>
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e92.xml"/>
+               <svrl:fired-rule context="TEI"/>
+               <svrl:failed-assert test="@xml:id = descendant::idno[@type = 'LOCAL']"
+                                   id="general-0002.02"
+                                   location="/TEI[1]">
+                  <svrl:text>The element TEI must have an xml:id attribute with its value equal to a descendant idno element with type = 'LOCAL'</svrl:text>
+               </svrl:failed-assert>
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e92.xml"/>
+            </svrl:schematron-output>
+         </x:result>
+         <x:test successful="true">
+            <x:label>assert general-0002.02</x:label>
+            <x:expect select="()"/>
+         </x:test>
+      </x:scenario>
+   </x:scenario>
+   <x:scenario>
+      <x:label>publicationStmt</x:label>
+      <x:scenario>
+         <x:label>correct sort date</x:label>
+         <x:context href="file:///o:/github/mtpo-schematron/test/xspec/context-d1e112.xml"/>
+         <x:result>
+            <svrl:schematron-output xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                                    xmlns:saxon="http://saxon.sf.net/"
+                                    xmlns:schold="http://www.ascc.net/xml/schematron"
+                                    xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+                                    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                                    title=""
+                                    schemaVersion=""><!--   
+		   
+		   
+		 -->
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e112.xml"/>
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e112.xml"/>
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e112.xml"/>
+               <svrl:fired-rule context="publicationStmt"/>
+               <svrl:failed-assert test="child::date/@type = 'pub'"
+                                   id="pubSt-0002"
+                                   location="/teiHeader[1]/publicationStmt[1]">
+                  <svrl:text>The publicationStmt element must have a child date element with a type attribute with value 'pub'</svrl:text>
+               </svrl:failed-assert>
+            </svrl:schematron-output>
+         </x:result>
+         <x:test successful="true">
+            <x:label>not assert pubSt-0001</x:label>
+            <x:expect select="()"/>
+         </x:test>
+      </x:scenario>
+      <x:scenario>
+         <x:label>incorrect no sort date</x:label>
+         <x:context href="file:///o:/github/mtpo-schematron/test/xspec/context-d1e129.xml"/>
+         <x:result>
+            <svrl:schematron-output xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                                    xmlns:saxon="http://saxon.sf.net/"
+                                    xmlns:schold="http://www.ascc.net/xml/schematron"
+                                    xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+                                    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                                    title=""
+                                    schemaVersion=""><!--   
+		   
+		   
+		 -->
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e129.xml"/>
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e129.xml"/>
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e129.xml"/>
+               <svrl:fired-rule context="publicationStmt"/>
+               <svrl:failed-assert test="child::date/@type = 'sort'"
+                                   id="pubSt-0001"
+                                   location="/teiHeader[1]/publicationStmt[1]">
+                  <svrl:text>The publicationStmt element must have a child date element with a type attribute with value 'sort'</svrl:text>
+               </svrl:failed-assert>
+            </svrl:schematron-output>
+         </x:result>
+         <x:test successful="true">
+            <x:label>assert pubSt-0001</x:label>
+            <x:expect select="()"/>
+         </x:test>
+      </x:scenario>
+      <x:scenario>
+         <x:label>correct pub date</x:label>
+         <x:context href="file:///o:/github/mtpo-schematron/test/xspec/context-d1e146.xml"/>
+         <x:result>
+            <svrl:schematron-output xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                                    xmlns:saxon="http://saxon.sf.net/"
+                                    xmlns:schold="http://www.ascc.net/xml/schematron"
+                                    xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+                                    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                                    title=""
+                                    schemaVersion=""><!--   
+		   
+		   
+		 -->
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e146.xml"/>
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e146.xml"/>
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e146.xml"/>
+               <svrl:fired-rule context="publicationStmt"/>
+            </svrl:schematron-output>
+         </x:result>
+         <x:test successful="true">
+            <x:label>not assert pubSt-0002</x:label>
+            <x:expect select="()"/>
+         </x:test>
+      </x:scenario>
+      <x:scenario>
+         <x:label>incorrect no pub date</x:label>
+         <x:context href="file:///o:/github/mtpo-schematron/test/xspec/context-d1e166.xml"/>
+         <x:result>
+            <svrl:schematron-output xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                                    xmlns:saxon="http://saxon.sf.net/"
+                                    xmlns:schold="http://www.ascc.net/xml/schematron"
+                                    xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+                                    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                                    title=""
+                                    schemaVersion=""><!--   
+		   
+		   
+		 -->
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e166.xml"/>
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e166.xml"/>
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e166.xml"/>
+               <svrl:fired-rule context="publicationStmt"/>
+               <svrl:failed-assert test="child::date/@type = 'pub'"
+                                   id="pubSt-0002"
+                                   location="/teiHeader[1]/publicationStmt[1]">
+                  <svrl:text>The publicationStmt element must have a child date element with a type attribute with value 'pub'</svrl:text>
+               </svrl:failed-assert>
+            </svrl:schematron-output>
+         </x:result>
+         <x:test successful="true">
+            <x:label>assert pubSt-0002</x:label>
+            <x:expect select="()"/>
+         </x:test>
+      </x:scenario>
+   </x:scenario>
+</x:report>

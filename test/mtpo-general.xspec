@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="../xspec/src/schemas/xspec.rnc" type="application/relax-ng-compact-syntax"?>
-<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="../mtpo-general.sch">
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="../schema/mtpo-general.sch">
 
     <x:scenario label="general-0001">
         <x:scenario label="correct">
