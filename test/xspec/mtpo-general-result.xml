@@ -5,8 +5,9 @@
           xmlns:test="http://www.jenitennison.com/xslt/unit-test"
           xmlns:x="http://www.jenitennison.com/xslt/xspec"
           xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+          xmlns:tei="http://www.tei-c.org/ns/1.0"
           stylesheet="o:/github/mtpo-schematron/test/../schema/mtpo-general.sch-compiled.xsl"
-          date="2018-04-03T13:08:16.256-07:00"
+          date="2018-04-03T14:41:30.717-07:00"
           xspec="file:/o:/github/mtpo-schematron/test/mtpo-general.xspec"
           schematron="file:/o:/github/mtpo-schematron/schema/mtpo-general.sch">
    <x:scenario>
@@ -25,6 +26,8 @@
 		   
 		   
 		 -->
+               <svrl:ns-prefix-in-attribute-values uri="http://www.tei-c.org/ns/1.0" prefix="tei"/>
+               <svrl:ns-prefix-in-attribute-values uri="http://www.w3.org/XML/1998/namespace" prefix="xml"/>
                <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e8.xml"/>
                <svrl:fired-rule context="*[@xml:id]"/>
                <svrl:fired-rule context="*[@xml:id]"/>
@@ -51,13 +54,15 @@
 		   
 		   
 		 -->
+               <svrl:ns-prefix-in-attribute-values uri="http://www.tei-c.org/ns/1.0" prefix="tei"/>
+               <svrl:ns-prefix-in-attribute-values uri="http://www.w3.org/XML/1998/namespace" prefix="xml"/>
                <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e23.xml"/>
                <svrl:fired-rule context="*[@xml:id]"/>
                <svrl:fired-rule context="*[@xml:id]"/>
                <svrl:successful-report test="preceding::*/@xml:id[ normalize-space(.) = $myID ]"
                                        id="general-0001"
-                                       location="/div0[1]/divb[1]">
-                  <svrl:text>The @xml:id "div001" on &lt;divb&gt; duplicates an @xml:id found earlier in the document: div001 on diva</svrl:text>
+                                       location="/*:div0[namespace-uri()='http://www.tei-c.org/ns/1.0'][1]/*:div1[namespace-uri()='http://www.tei-c.org/ns/1.0'][2]">
+                  <svrl:text>The @xml:id "div001" on &lt;tei:div1&gt; duplicates an @xml:id found earlier in the document: div001 on tei:div1</svrl:text>
                </svrl:successful-report>
                <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e23.xml"/>
                <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e23.xml"/>
@@ -85,6 +90,8 @@
 		   
 		   
 		 -->
+               <svrl:ns-prefix-in-attribute-values uri="http://www.tei-c.org/ns/1.0" prefix="tei"/>
+               <svrl:ns-prefix-in-attribute-values uri="http://www.w3.org/XML/1998/namespace" prefix="xml"/>
                <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e41.xml"/>
                <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e41.xml"/>
                <svrl:fired-rule context="TEI.2"/>
@@ -110,10 +117,12 @@
 		   
 		   
 		 -->
+               <svrl:ns-prefix-in-attribute-values uri="http://www.tei-c.org/ns/1.0" prefix="tei"/>
+               <svrl:ns-prefix-in-attribute-values uri="http://www.w3.org/XML/1998/namespace" prefix="xml"/>
                <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e58.xml"/>
                <svrl:fired-rule context="*[@xml:id]"/>
                <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e58.xml"/>
-               <svrl:fired-rule context="TEI"/>
+               <svrl:fired-rule context="tei:TEI"/>
                <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e58.xml"/>
             </svrl:schematron-output>
          </x:result>
@@ -136,6 +145,8 @@
 		   
 		   
 		 -->
+               <svrl:ns-prefix-in-attribute-values uri="http://www.tei-c.org/ns/1.0" prefix="tei"/>
+               <svrl:ns-prefix-in-attribute-values uri="http://www.w3.org/XML/1998/namespace" prefix="xml"/>
                <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e75.xml"/>
                <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e75.xml"/>
                <svrl:fired-rule context="TEI.2"/>
@@ -166,14 +177,16 @@
 		   
 		   
 		 -->
+               <svrl:ns-prefix-in-attribute-values uri="http://www.tei-c.org/ns/1.0" prefix="tei"/>
+               <svrl:ns-prefix-in-attribute-values uri="http://www.w3.org/XML/1998/namespace" prefix="xml"/>
                <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e92.xml"/>
                <svrl:fired-rule context="*[@xml:id]"/>
                <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e92.xml"/>
-               <svrl:fired-rule context="TEI"/>
-               <svrl:failed-assert test="@xml:id = descendant::idno[@type = 'LOCAL']"
+               <svrl:fired-rule context="tei:TEI"/>
+               <svrl:failed-assert test="@xml:id = descendant::tei:idno[@type = 'LOCAL']"
                                    id="general-0002.02"
-                                   location="/TEI[1]">
-                  <svrl:text>The element TEI must have an xml:id attribute with its value equal to a descendant idno element with type = 'LOCAL'</svrl:text>
+                                   location="/*:TEI[namespace-uri()='http://www.tei-c.org/ns/1.0'][1]">
+                  <svrl:text>The element tei:TEI must have an xml:id attribute with its value equal to a descendant idno element with type = 'LOCAL'</svrl:text>
                </svrl:failed-assert>
                <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e92.xml"/>
             </svrl:schematron-output>
@@ -200,14 +213,16 @@
 		   
 		   
 		 -->
+               <svrl:ns-prefix-in-attribute-values uri="http://www.tei-c.org/ns/1.0" prefix="tei"/>
+               <svrl:ns-prefix-in-attribute-values uri="http://www.w3.org/XML/1998/namespace" prefix="xml"/>
                <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e112.xml"/>
                <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e112.xml"/>
                <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e112.xml"/>
-               <svrl:fired-rule context="publicationStmt"/>
-               <svrl:failed-assert test="child::date/@type = 'pub'"
+               <svrl:fired-rule context="tei:publicationStmt"/>
+               <svrl:failed-assert test="child::tei:date/@type = 'pub'"
                                    id="pubSt-0002"
-                                   location="/teiHeader[1]/publicationStmt[1]">
-                  <svrl:text>The publicationStmt element must have a child date element with a type attribute with value 'pub'</svrl:text>
+                                   location="/*:teiHeader[namespace-uri()='http://www.tei-c.org/ns/1.0'][1]/*:publicationStmt[namespace-uri()='http://www.tei-c.org/ns/1.0'][1]">
+                  <svrl:text>The tei:publicationStmt element must have a child date element with a type attribute with value 'pub'</svrl:text>
                </svrl:failed-assert>
             </svrl:schematron-output>
          </x:result>
@@ -230,14 +245,16 @@
 		   
 		   
 		 -->
+               <svrl:ns-prefix-in-attribute-values uri="http://www.tei-c.org/ns/1.0" prefix="tei"/>
+               <svrl:ns-prefix-in-attribute-values uri="http://www.w3.org/XML/1998/namespace" prefix="xml"/>
                <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e129.xml"/>
                <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e129.xml"/>
                <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e129.xml"/>
-               <svrl:fired-rule context="publicationStmt"/>
-               <svrl:failed-assert test="child::date/@type = 'sort'"
+               <svrl:fired-rule context="tei:publicationStmt"/>
+               <svrl:failed-assert test="child::tei:date/@type = 'sort'"
                                    id="pubSt-0001"
-                                   location="/teiHeader[1]/publicationStmt[1]">
-                  <svrl:text>The publicationStmt element must have a child date element with a type attribute with value 'sort'</svrl:text>
+                                   location="/*:teiHeader[namespace-uri()='http://www.tei-c.org/ns/1.0'][1]/*:publicationStmt[namespace-uri()='http://www.tei-c.org/ns/1.0'][1]">
+                  <svrl:text>The tei:publicationStmt element must have a child date element with a type attribute with value 'sort'</svrl:text>
                </svrl:failed-assert>
             </svrl:schematron-output>
          </x:result>
@@ -260,10 +277,12 @@
 		   
 		   
 		 -->
+               <svrl:ns-prefix-in-attribute-values uri="http://www.tei-c.org/ns/1.0" prefix="tei"/>
+               <svrl:ns-prefix-in-attribute-values uri="http://www.w3.org/XML/1998/namespace" prefix="xml"/>
                <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e146.xml"/>
                <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e146.xml"/>
                <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e146.xml"/>
-               <svrl:fired-rule context="publicationStmt"/>
+               <svrl:fired-rule context="tei:publicationStmt"/>
             </svrl:schematron-output>
          </x:result>
          <x:test successful="true">
@@ -285,14 +304,16 @@
 		   
 		   
 		 -->
+               <svrl:ns-prefix-in-attribute-values uri="http://www.tei-c.org/ns/1.0" prefix="tei"/>
+               <svrl:ns-prefix-in-attribute-values uri="http://www.w3.org/XML/1998/namespace" prefix="xml"/>
                <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e166.xml"/>
                <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e166.xml"/>
                <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e166.xml"/>
-               <svrl:fired-rule context="publicationStmt"/>
-               <svrl:failed-assert test="child::date/@type = 'pub'"
+               <svrl:fired-rule context="tei:publicationStmt"/>
+               <svrl:failed-assert test="child::tei:date/@type = 'pub'"
                                    id="pubSt-0002"
-                                   location="/teiHeader[1]/publicationStmt[1]">
-                  <svrl:text>The publicationStmt element must have a child date element with a type attribute with value 'pub'</svrl:text>
+                                   location="/*:teiHeader[namespace-uri()='http://www.tei-c.org/ns/1.0'][1]/*:publicationStmt[namespace-uri()='http://www.tei-c.org/ns/1.0'][1]">
+                  <svrl:text>The tei:publicationStmt element must have a child date element with a type attribute with value 'pub'</svrl:text>
                </svrl:failed-assert>
             </svrl:schematron-output>
          </x:result>

@@ -7,6 +7,7 @@
                 xmlns:pkg="http://expath.org/ns/pkg"
                 xmlns:impl="urn:x-xspec:compile:xslt:impl"
                 xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                xmlns:tei="http://www.tei-c.org/ns/1.0"
                 version="2.0"
                 exclude-result-prefixes="pkg impl">
    <xsl:import href="o:/github/mtpo-schematron/test/../schema/mtpo-general.sch-compiled.xsl"/>
