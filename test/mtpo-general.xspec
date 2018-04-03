@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../xspec/src/schemas/xspec.rnc" type="application/relax-ng-compact-syntax"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="../mtpo-general.sch">
+
+    <x:scenario label="general-0001">
+        <x:scenario label="correct">
+            <x:context>
+                <div0>
+                    <div1 xml:id="div001" type="textsec"/>
+                    <div1 xml:id="div002" type="textsec"/>
+                </div0>
+            </x:context>
+            <x:expect-not-report id="general-0001"/>
+        </x:scenario>
+        <x:scenario label="incorrect repeated xml:id">
+            <x:context>
+                <div0>
+                    <diva xml:id="div001" type="textsec"/>
+                    <divb xml:id="div001" type="textsec"/>
+                </div0>
+            </x:context>
+            <x:expect-report id="general-0001"/>
+        </x:scenario>
+    </x:scenario>
+    <x:scenario label="general-0002">
+        <x:scenario label="correct-TEI.2">
+            <x:context>
+                <TEI.2 id="ID-1">
+                    <element>
+                        <idno type="LOCAL">ID-1</idno>
+                    </element>
+                </TEI.2>
+            </x:context>
+            <x:expect-not-assert id="general-0002.01"/>
+        </x:scenario>
+        <x:scenario label="correct-TEI">
+            <x:context>
+                <TEI xml:id="ID-1">
+                    <element>
+                        <idno type="LOCAL">ID-1</idno>
+                    </element>
+                </TEI>
+            </x:context>
+            <x:expect-not-assert id="general-0002.02"/>
+        </x:scenario>
+        <x:scenario label="incorrect non matching TEI.2 id">
+            <x:context>
+                <TEI.2 id="ID-1">
+                    <element>
+                        <idno type="LOCAL">ID-2</idno>
+                    </element>
+                </TEI.2>
+            </x:context>
+            <x:expect-assert id="general-0002.01"/>
+        </x:scenario>
+        <x:scenario label="incorrect non matching TEI xml:id">
+            <x:context>
+                <TEI xml:id="ID-1">
+                    <element>
+                        <idno type="LOCAL">ID-2</idno>
+                    </element>
+                </TEI>
+            </x:context>
+            <x:expect-assert id="general-0002.02"/>
+        </x:scenario>
+    </x:scenario>
+    <x:scenario label="publicationStmt">
+        <x:scenario label="correct sort date">
+            <x:context>
+                <teiHeader>
+                    <publicationStmt>
+                        <date type="sort" value="1864-00-00">1864</date>
+                    </publicationStmt>
+                </teiHeader>
+            </x:context>
+            <x:expect-not-assert id="pubSt-0001"/>
+        </x:scenario>
+        <x:scenario label="incorrect no sort date">
+            <x:context>
+                <teiHeader>
+                    <publicationStmt>
+                        <date type="pub" when="2016">2016</date>
+                    </publicationStmt>
+                </teiHeader>
+            </x:context>
+            <x:expect-assert id="pubSt-0001"/>
+        </x:scenario>
+        <x:scenario label="correct pub date">
+            <x:context>
+                <teiHeader>
+                    <publicationStmt>
+                        <date type="sort" value="1864-00-00">1864</date>
+                        <date type="pub" when="2016">2016</date>
+                    </publicationStmt>
+                </teiHeader>
+            </x:context>
+            <x:expect-not-assert id="pubSt-0002"/>
+        </x:scenario>
+        <x:scenario label="incorrect no pub date">
+            <x:context>
+                <teiHeader>
+                    <publicationStmt>
+                        <date type="sort" value="1864-00-00">1864</date>
+                    </publicationStmt>
+                </teiHeader>
+            </x:context>
+            <x:expect-assert id="pubSt-0002"/>
+        </x:scenario>
+    </x:scenario>
+</x:description>
