@@ -32,13 +32,14 @@
                    xspec="file:/o:/github/mtpo-schematron/test/mtpo-letters.xspec"
                    schematron="file:/o:/github/mtpo-schematron/schema/mtpo-letters.sch">
             <xsl:call-template name="x:d5e2"/>
+            <xsl:call-template name="x:d5e9"/>
          </x:report>
       </xsl:result-document>
    </xsl:template>
    <xsl:template name="x:d5e2">
-      <xsl:message>mtpo-letters-00001</xsl:message>
+      <xsl:message>mtpo-letters-00015</xsl:message>
       <x:scenario>
-         <x:label>mtpo-letters-00001</x:label>
+         <x:label>mtpo-letters-00015</x:label>
          <xsl:call-template name="x:d5e3"/>
          <xsl:call-template name="x:d5e6"/>
       </x:scenario>
@@ -67,7 +68,7 @@
    </xsl:template>
    <xsl:template name="x:d5e5">
       <xsl:param name="x:result" required="yes"/>
-      <xsl:message>mtpo-letters-00001 not assert</xsl:message>
+      <xsl:message>mtpo-letters-00015 not assert</xsl:message>
       <xsl:variable name="impl:expected" select="()"/>
       <xsl:variable name="impl:test-items" as="item()*">
          <xsl:choose>
@@ -106,7 +107,7 @@
          <xsl:message>      FAILED</xsl:message>
       </xsl:if>
       <x:test successful="{$impl:successful}">
-         <x:label>mtpo-letters-00001 not assert</x:label>
+         <x:label>mtpo-letters-00015 not assert</x:label>
          <xsl:if test="not($impl:boolean-test)">
             <xsl:call-template name="test:report-value">
                <xsl:with-param name="value" select="$impl:test-result"/>
@@ -145,7 +146,7 @@
    </xsl:template>
    <xsl:template name="x:d5e8">
       <xsl:param name="x:result" required="yes"/>
-      <xsl:message>mtpo-letters-00001 assert</xsl:message>
+      <xsl:message>mtpo-letters-00015 assert</xsl:message>
       <xsl:variable name="impl:expected" select="()"/>
       <xsl:variable name="impl:test-items" as="item()*">
          <xsl:choose>
@@ -182,7 +183,169 @@
          <xsl:message>      FAILED</xsl:message>
       </xsl:if>
       <x:test successful="{$impl:successful}">
-         <x:label>mtpo-letters-00001 assert</x:label>
+         <x:label>mtpo-letters-00015 assert</x:label>
+         <xsl:if test="not($impl:boolean-test)">
+            <xsl:call-template name="test:report-value">
+               <xsl:with-param name="value" select="$impl:test-result"/>
+               <xsl:with-param name="wrapper-name" select="'x:result'"/>
+               <xsl:with-param name="wrapper-ns" select="'http://www.jenitennison.com/xslt/xspec'"/>
+            </xsl:call-template>
+         </xsl:if>
+         <xsl:call-template name="test:report-value">
+            <xsl:with-param name="value" select="$impl:expected"/>
+            <xsl:with-param name="wrapper-name" select="'x:expect'"/>
+            <xsl:with-param name="wrapper-ns" select="'http://www.jenitennison.com/xslt/xspec'"/>
+         </xsl:call-template>
+      </x:test>
+   </xsl:template>
+   <xsl:template name="x:d5e9">
+      <xsl:message>mtpo-letters-00016</xsl:message>
+      <x:scenario>
+         <x:label>mtpo-letters-00016</x:label>
+         <xsl:call-template name="x:d5e10"/>
+         <xsl:call-template name="x:d5e13"/>
+      </x:scenario>
+   </xsl:template>
+   <xsl:template name="x:d5e10">
+      <xsl:message>..correct-app-id</xsl:message>
+      <x:scenario>
+         <x:label>correct-app-id</x:label>
+         <x:context href="file:///o:/github/mtpo-schematron/test/xspec/context-d1e49.xml"/>
+         <xsl:variable name="x:result" as="item()*">
+            <xsl:variable name="impl:context-doc"
+                          as="document-node()"
+                          select="doc('file:///o:/github/mtpo-schematron/test/xspec/context-d1e49.xml')"/>
+            <xsl:variable name="impl:context" select="$impl:context-doc"/>
+            <xsl:apply-templates select="$impl:context"/>
+         </xsl:variable>
+         <xsl:call-template name="test:report-value">
+            <xsl:with-param name="value" select="$x:result"/>
+            <xsl:with-param name="wrapper-name" select="'x:result'"/>
+            <xsl:with-param name="wrapper-ns" select="'http://www.jenitennison.com/xslt/xspec'"/>
+         </xsl:call-template>
+         <xsl:call-template name="x:d5e12">
+            <xsl:with-param name="x:result" select="$x:result"/>
+         </xsl:call-template>
+      </x:scenario>
+   </xsl:template>
+   <xsl:template name="x:d5e12">
+      <xsl:param name="x:result" required="yes"/>
+      <xsl:message>mtpo-letters-00016 not assert</xsl:message>
+      <xsl:variable name="impl:expected" select="()"/>
+      <xsl:variable name="impl:test-items" as="item()*">
+         <xsl:choose>
+            <xsl:when test="$x:result instance of node()+">
+               <xsl:variable name="impl:test-items-doc">
+                  <xsl:sequence select="$x:result"/>
+               </xsl:variable>
+               <xsl:sequence select="$impl:test-items-doc treat as document-node()"/>
+            </xsl:when>
+            <xsl:otherwise>
+               <xsl:sequence select="$x:result"/>
+            </xsl:otherwise>
+         </xsl:choose>
+      </xsl:variable>
+      <xsl:variable name="impl:test-result" as="item()*">
+         <xsl:choose>
+            <xsl:when test="count($impl:test-items) eq 1">
+               <xsl:for-each select="$impl:test-items">
+                  <xsl:sequence select="boolean(svrl:schematron-output[svrl:fired-rule]) and empty(svrl:schematron-output/svrl:failed-assert)"
+                                version="2"/>
+               </xsl:for-each>
+            </xsl:when>
+            <xsl:otherwise>
+               <xsl:sequence select="boolean(svrl:schematron-output[svrl:fired-rule]) and empty(svrl:schematron-output/svrl:failed-assert)"
+                             version="2"/>
+            </xsl:otherwise>
+         </xsl:choose>
+      </xsl:variable>
+      <xsl:variable name="impl:boolean-test"
+                    as="xs:boolean"
+                    select="$impl:test-result instance of xs:boolean"/>
+      <xsl:variable name="impl:successful"
+                    as="xs:boolean"
+                    select="if ($impl:boolean-test) then $impl:test-result cast as xs:boolean                     else test:deep-equal($impl:expected, $impl:test-result, 2)"/>
+      <xsl:if test="not($impl:successful)">
+         <xsl:message>      FAILED</xsl:message>
+      </xsl:if>
+      <x:test successful="{$impl:successful}">
+         <x:label>mtpo-letters-00016 not assert</x:label>
+         <xsl:if test="not($impl:boolean-test)">
+            <xsl:call-template name="test:report-value">
+               <xsl:with-param name="value" select="$impl:test-result"/>
+               <xsl:with-param name="wrapper-name" select="'x:result'"/>
+               <xsl:with-param name="wrapper-ns" select="'http://www.jenitennison.com/xslt/xspec'"/>
+            </xsl:call-template>
+         </xsl:if>
+         <xsl:call-template name="test:report-value">
+            <xsl:with-param name="value" select="$impl:expected"/>
+            <xsl:with-param name="wrapper-name" select="'x:expect'"/>
+            <xsl:with-param name="wrapper-ns" select="'http://www.jenitennison.com/xslt/xspec'"/>
+         </xsl:call-template>
+      </x:test>
+   </xsl:template>
+   <xsl:template name="x:d5e13">
+      <xsl:message>..incorrect-app-id</xsl:message>
+      <x:scenario>
+         <x:label>incorrect-app-id</x:label>
+         <x:context href="file:///o:/github/mtpo-schematron/test/xspec/context-d1e67.xml"/>
+         <xsl:variable name="x:result" as="item()*">
+            <xsl:variable name="impl:context-doc"
+                          as="document-node()"
+                          select="doc('file:///o:/github/mtpo-schematron/test/xspec/context-d1e67.xml')"/>
+            <xsl:variable name="impl:context" select="$impl:context-doc"/>
+            <xsl:apply-templates select="$impl:context"/>
+         </xsl:variable>
+         <xsl:call-template name="test:report-value">
+            <xsl:with-param name="value" select="$x:result"/>
+            <xsl:with-param name="wrapper-name" select="'x:result'"/>
+            <xsl:with-param name="wrapper-ns" select="'http://www.jenitennison.com/xslt/xspec'"/>
+         </xsl:call-template>
+         <xsl:call-template name="x:d5e15">
+            <xsl:with-param name="x:result" select="$x:result"/>
+         </xsl:call-template>
+      </x:scenario>
+   </xsl:template>
+   <xsl:template name="x:d5e15">
+      <xsl:param name="x:result" required="yes"/>
+      <xsl:message>mtpo-letters-00016 assert</xsl:message>
+      <xsl:variable name="impl:expected" select="()"/>
+      <xsl:variable name="impl:test-items" as="item()*">
+         <xsl:choose>
+            <xsl:when test="$x:result instance of node()+">
+               <xsl:variable name="impl:test-items-doc">
+                  <xsl:sequence select="$x:result"/>
+               </xsl:variable>
+               <xsl:sequence select="$impl:test-items-doc treat as document-node()"/>
+            </xsl:when>
+            <xsl:otherwise>
+               <xsl:sequence select="$x:result"/>
+            </xsl:otherwise>
+         </xsl:choose>
+      </xsl:variable>
+      <xsl:variable name="impl:test-result" as="item()*">
+         <xsl:choose>
+            <xsl:when test="count($impl:test-items) eq 1">
+               <xsl:for-each select="$impl:test-items">
+                  <xsl:sequence select="exists(svrl:schematron-output/svrl:failed-assert)" version="2"/>
+               </xsl:for-each>
+            </xsl:when>
+            <xsl:otherwise>
+               <xsl:sequence select="exists(svrl:schematron-output/svrl:failed-assert)" version="2"/>
+            </xsl:otherwise>
+         </xsl:choose>
+      </xsl:variable>
+      <xsl:variable name="impl:boolean-test"
+                    as="xs:boolean"
+                    select="$impl:test-result instance of xs:boolean"/>
+      <xsl:variable name="impl:successful"
+                    as="xs:boolean"
+                    select="if ($impl:boolean-test) then $impl:test-result cast as xs:boolean                     else test:deep-equal($impl:expected, $impl:test-result, 2)"/>
+      <xsl:if test="not($impl:successful)">
+         <xsl:message>      FAILED</xsl:message>
+      </xsl:if>
+      <x:test successful="{$impl:successful}">
+         <x:label>mtpo-letters-00016 assert</x:label>
          <xsl:if test="not($impl:boolean-test)">
             <xsl:call-template name="test:report-value">
                <xsl:with-param name="value" select="$impl:test-result"/>
