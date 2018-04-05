@@ -41,61 +41,61 @@ teiHeader/*:fileDesc/*:titleStmt/*:author
 
 ### TEIHeader context
 
-- Every sourceDesc must contain a bibl element with an n attribute whose value is a description of the copy text.
+1. Every sourceDesc must contain a bibl element with an n attribute whose value is a description of the copy text.
 ```
 *:bibl[@n='copy'][ancestor::*:sourceDesc]
 ```
 ### body context
 
-- Every letter body must contain a head element of type 'metadata
+1. Every letter body must contain a head element of type 'metadata
 
-- The head element of type 'metadata' must contain an addressee element enclosing one or more name elements; a date element, and a source element.
+2. The head element of type 'metadata' must contain an addressee element enclosing one or more name elements; a date element, and a source element.
 
-- Every P4 file that embeds or points to another document must declare that document as an entity in the DTD for as long as we use P4
+3. Every P4 file that embeds or points to another document must declare that document as an entity in the DTD for as long as we use P4
 
-- Every file that embeds or points to an image must declare that document as an entity in the DTD for as long as we use P4
+4. Every file that embeds or points to an image must declare that document as an entity in the DTD for as long as we use P4
 
-- Every letter body must contain a div1 type = letter with an id of lt0001
+5. Every letter body must contain a div1 type = letter with an id of lt0001
 
-- Every letter that encloses another short document must place the enclosure in a div1 of type enclosure  with an id = en####
+6. Every letter that encloses another short document must place the enclosure in a div1 of type enclosure  with an id = en####
 
-- If the enclosure is a very long letter it must be the target of, in P4, an xptr element of type 'crossref', with a doc attribute whose value is the file identifier. It should contain a rend attribute whose value is eithr 'embed' or 'new'
+7. If the enclosure is a very long letter it must be the target of, in P4, an xptr element of type 'crossref', with a doc attribute whose value is the file identifier. It should contain a rend attribute whose value is eithr 'embed' or 'new'
 
-- If an enclosure is a clipping it must be placed in a div2 element with an attribute of type 'clipping'
+8. If an enclosure is a clipping it must be placed in a div2 element with an attribute of type 'clipping'
 
-- Every letter must contain a div1 with a type attribute whose value is 'commentary', and an id attribute matching xx####.
+9. Every letter must contain a div1 with a type attribute whose value is 'commentary', and an id attribute matching xx####.
 
-- Every letter div1 of type 'commentary' may contain a div2 of type 'pub' with an id attribute matching pb#### (if there was a previous publication. ie query)
+10. Every letter div1 of type 'commentary' may contain a div2 of type 'pub' with an id attribute matching pb#### (if there was a previous publication. ie query)
 
-- Every letter whose provenance is known must have a div2 element of type 'provenance' with an id attribute matching pv####. ie query 
+11. Every letter whose provenance is known must have a div2 element of type 'provenance' with an id attribute matching pv####. ie query 
 
-- Every new letter, if it has an envelope, must contain a div1 of type 'post-transmission' with an id attribute matching pt#### and a div2 of type 'envelope' with an id matching pt####
+12. Every new letter, if it has an envelope, must contain a div1 of type 'post-transmission' with an id attribute matching pt#### and a div2 of type 'envelope' with an id matching pt####
 
-- A block of text within a div of type 'post-transmission' must be emclosed in an ab element with a type attribute whose value is 'pt'
+13. A block of text within a div of type 'post-transmission' must be emclosed in an ab element with a type attribute whose value is 'pt'
 
-- The text of a postmark must be placed in a hi element with the rend attribute xs-smallcaps, and the text must be rendered in lower cae.
+14. The text of a postmark must be placed in a hi element with the rend attribute xs-smallcaps, and the text must be rendered in lower cae.
 
-- In a letter file the inline lemma text for an apparatus entry must be preceded by an anchor element whose id attribute matches the from attribute of the app element that follows the text.
+15. In a letter file the inline lemma text for an apparatus entry must be preceded by an anchor element whose id attribute matches the from attribute of the app element that follows the text.
 
-- The id attribute for the app element should be in the format a#####
+16. The id attribute for the app element should be in the format a#####
 
-- Every note element in the body must have a type value of one of 'ed', 'an', or 'au'
+17. Every note element in the body must have a type value of one of 'ed', 'an', or 'au'
 
-- Every note element in the body of type 'an' or 'ed' must have an id attribute and a place attribute.
+18. Every note element in the body of type 'an' or 'ed' must have an id attribute and a place attribute.
 
-- A note element of type 'an' must use the value 'inline' for the place attribute
+19. A note element of type 'an' must use the value 'inline' for the place attribute
 
-- A note element of type 'an' which contains editorial annotation must have a resp attribute with the value 'MTP'
+20. A note element of type 'an' which contains editorial annotation must have a resp attribute with the value 'MTP'
 
-- A note element of type 'au' must have a resp attribute whose value is the key value for the name, i.e. the identifier bioXXXXX
+21. A note element of type 'au' must have a resp attribute whose value is the key value for the name, i.e. the identifier bioXXXXX
 
-- A note element of type 'au' should most of the time contain at least one of a place attribute or an n attribute. ie query
+22. A note element of type 'au' should most of the time contain at least one of a place attribute or an n attribute. ie query
 
-- A note element of type an must have an n attribute containing a sequential enumeration relative to other an notes.
+23. A note element of type an must have an n attribute containing a sequential enumeration relative to other an notes.
 
-- A note element of type ed must use the value 'foot' for the place attribute
+24. A note element of type ed must use the value 'foot' for the place attribute
 
-- Every bibliographic citation, whether pointing to a repository or a secondary source, must use an xref element with a type attribute of 'dbquery', a from attribute whose value is the identifier of the keyed citation, and a rend attribute whose value is 'new'. 
+25. Every bibliographic citation, whether pointing to a repository or a secondary source, must use an xref element with a type attribute of 'dbquery', a from attribute whose value is the identifier of the keyed citation, and a rend attribute whose value is 'new'. 
 
 
 ## PARTICULAR TO WRITINGS, P5
