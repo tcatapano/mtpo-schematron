@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="file:/O:/github/xspec/src/compiler/format-xspec-report.xsl"?>
+<x:report xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          xmlns:test="http://www.jenitennison.com/xslt/unit-test"
+          xmlns:x="http://www.jenitennison.com/xslt/xspec"
+          xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+          xmlns:tei="http://www.tei-c.org/ns/1.0"
+          stylesheet="o:/github/mtpo-schematron/test/../schema/mtpo-letters.sch-compiled.xsl"
+          date="2018-04-05T14:24:02.603-07:00"
+          xspec="file:/o:/github/mtpo-schematron/test/mtpo-letters.xspec"
+          schematron="file:/o:/github/mtpo-schematron/schema/mtpo-letters.sch">
+   <x:scenario>
+      <x:label>mtpo-letters-00001</x:label>
+      <x:scenario>
+         <x:label>correct-app-anchor-id-match</x:label>
+         <x:context href="file:///o:/github/mtpo-schematron/test/xspec/context-d1e8.xml"/>
+         <x:result>
+            <svrl:schematron-output xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                                    xmlns:saxon="http://saxon.sf.net/"
+                                    xmlns:schold="http://www.ascc.net/xml/schematron"
+                                    xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+                                    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                                    title=""
+                                    schemaVersion=""><!--   
+		   
+		   
+		 -->
+               <svrl:ns-prefix-in-attribute-values uri="http://www.tei-c.org/ns/1.0" prefix="tei"/>
+               <svrl:ns-prefix-in-attribute-values uri="http://www.w3.org/XML/1998/namespace" prefix="xml"/>
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e8.xml"/>
+               <svrl:fired-rule context="tei:app"/>
+            </svrl:schematron-output>
+         </x:result>
+         <x:test successful="true">
+            <x:label>mtpo-letters-00001 not assert</x:label>
+            <x:expect select="()"/>
+         </x:test>
+      </x:scenario>
+      <x:scenario>
+         <x:label>incorrect-app-anchor-id-match</x:label>
+         <x:context href="file:///o:/github/mtpo-schematron/test/xspec/context-d1e26.xml"/>
+         <x:result>
+            <svrl:schematron-output xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                                    xmlns:saxon="http://saxon.sf.net/"
+                                    xmlns:schold="http://www.ascc.net/xml/schematron"
+                                    xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+                                    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                                    title=""
+                                    schemaVersion=""><!--   
+		   
+		   
+		 -->
+               <svrl:ns-prefix-in-attribute-values uri="http://www.tei-c.org/ns/1.0" prefix="tei"/>
+               <svrl:ns-prefix-in-attribute-values uri="http://www.w3.org/XML/1998/namespace" prefix="xml"/>
+               <svrl:active-pattern document="file:///o:/github/mtpo-schematron/test/xspec/context-d1e26.xml"/>
+               <svrl:fired-rule context="tei:app"/>
+               <svrl:failed-assert test="@from = preceding-sibling::tei:anchor/@xml:id"
+                                   id="letters-0002.01"
+                                   location="/*:p[namespace-uri()='http://www.tei-c.org/ns/1.0'][1]/*:app[namespace-uri()='http://www.tei-c.org/ns/1.0'][1]">
+                  <svrl:text>In a letter file the inline lemma text for an apparatus entry must be preceded by an anchor element whose id attribute matches the from attribute of the app element that follows the text.</svrl:text>
+               </svrl:failed-assert>
+            </svrl:schematron-output>
+         </x:result>
+         <x:test successful="true">
+            <x:label>mtpo-letters-00001 assert</x:label>
+            <x:expect select="()"/>
+         </x:test>
+      </x:scenario>
+   </x:scenario>
+</x:report>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="xspec.rnc" type="application/relax-ng-compact-syntax"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+    xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:tei="http://www.tei-c.org/ns/1.0"
+    schematron="../schema/mtpo-letters.sch">
+    <x:scenario label="mtpo-letters-00001">
+        <x:scenario label="correct-app-anchor-id-match">
+            <x:context><tei:p><tei:anchor xml:id="ac0004"/>July 28, 1862<tei:app from="ac0004"
+                        xml:id="ap0004"><tei:lem>July 28, 1862</tei:lem>
+                        <tei:rdg>July (28, &#x2019;62?)</tei:rdg>
+                    </tei:app></tei:p>
+            </x:context>
+            <x:expect-not-assert label="mtpo-letters-00001"/>
+        </x:scenario>
+        <x:scenario label="incorrect-app-anchor-id-match">
+            <x:context>
+                <tei:p><tei:anchor xml:id="ac0004"/>July 28, 1862<tei:app from="ac0005"
+                        xml:id="ap0004"><tei:lem>July 28, 1862</tei:lem>
+                        <tei:rdg>July (28, &#x2019;62?)</tei:rdg>
+                    </tei:app>
+                </tei:p>
+            </x:context>
+            <x:expect-assert label="mtpo-letters-00001"/>
+        </x:scenario>
+    </x:scenario>
+</x:description>
