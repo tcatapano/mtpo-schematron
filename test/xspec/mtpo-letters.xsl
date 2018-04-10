@@ -10,13 +10,13 @@
                 xmlns:tei="http://www.tei-c.org/ns/1.0"
                 version="2.0"
                 exclude-result-prefixes="pkg impl">
-   <xsl:import href="o:/github/mtpo-schematron/test/../schema/mtpo-letters.sch-compiled.xsl"/>
+   <xsl:import href="O:/github/mtpo-schematron/test/../schema/mtpo-letters.sch-compiled.xsl"/>
    <xsl:import href="file:/O:/github/xspec/src/compiler/generate-tests-utils.xsl"/>
    <xsl:import href="file:/O:/github/xspec/src/schematron/sch-location-compare.xsl"/>
    <xsl:namespace-alias stylesheet-prefix="__x" result-prefix="xsl"/>
    <xsl:variable name="x:stylesheet-uri"
                  as="xs:string"
-                 select="'o:/github/mtpo-schematron/test/../schema/mtpo-letters.sch-compiled.xsl'"/>
+                 select="'O:/github/mtpo-schematron/test/../schema/mtpo-letters.sch-compiled.xsl'"/>
    <xsl:output name="x:report" method="xml" indent="yes"/>
    <xsl:template name="x:main">
       <xsl:message>
@@ -29,8 +29,8 @@
          <xsl:processing-instruction name="xml-stylesheet">type="text/xsl" href="file:/O:/github/xspec/src/compiler/format-xspec-report.xsl"</xsl:processing-instruction>
          <x:report stylesheet="{$x:stylesheet-uri}"
                    date="{current-dateTime()}"
-                   xspec="file:/o:/github/mtpo-schematron/test/mtpo-letters.xspec"
-                   schematron="file:/o:/github/mtpo-schematron/schema/mtpo-letters.sch">
+                   xspec="file:/O:/github/mtpo-schematron/test/mtpo-letters.xspec"
+                   schematron="file:/O:/github/mtpo-schematron/schema/mtpo-letters.sch">
             <xsl:call-template name="x:d5e2"/>
             <xsl:call-template name="x:d5e9"/>
          </x:report>
@@ -48,11 +48,11 @@
       <xsl:message>..correct-app-anchor-id-match</xsl:message>
       <x:scenario>
          <x:label>correct-app-anchor-id-match</x:label>
-         <x:context href="file:///o:/github/mtpo-schematron/test/xspec/context-d1e8.xml"/>
+         <x:context href="file:///O:/github/mtpo-schematron/test/xspec/context-d1e8.xml"/>
          <xsl:variable name="x:result" as="item()*">
             <xsl:variable name="impl:context-doc"
                           as="document-node()"
-                          select="doc('file:///o:/github/mtpo-schematron/test/xspec/context-d1e8.xml')"/>
+                          select="doc('file:///O:/github/mtpo-schematron/test/xspec/context-d1e8.xml')"/>
             <xsl:variable name="impl:context" select="$impl:context-doc"/>
             <xsl:apply-templates select="$impl:context"/>
          </xsl:variable>
@@ -126,11 +126,11 @@
       <xsl:message>..incorrect-app-anchor-id-match</xsl:message>
       <x:scenario>
          <x:label>incorrect-app-anchor-id-match</x:label>
-         <x:context href="file:///o:/github/mtpo-schematron/test/xspec/context-d1e26.xml"/>
+         <x:context href="file:///O:/github/mtpo-schematron/test/xspec/context-d1e57.xml"/>
          <xsl:variable name="x:result" as="item()*">
             <xsl:variable name="impl:context-doc"
                           as="document-node()"
-                          select="doc('file:///o:/github/mtpo-schematron/test/xspec/context-d1e26.xml')"/>
+                          select="doc('file:///O:/github/mtpo-schematron/test/xspec/context-d1e57.xml')"/>
             <xsl:variable name="impl:context" select="$impl:context-doc"/>
             <xsl:apply-templates select="$impl:context"/>
          </xsl:variable>
@@ -210,11 +210,11 @@
       <xsl:message>..correct-app-id</xsl:message>
       <x:scenario>
          <x:label>correct-app-id</x:label>
-         <x:context href="file:///o:/github/mtpo-schematron/test/xspec/context-d1e49.xml"/>
+         <x:context href="file:///O:/github/mtpo-schematron/test/xspec/context-d1e109.xml"/>
          <xsl:variable name="x:result" as="item()*">
             <xsl:variable name="impl:context-doc"
                           as="document-node()"
-                          select="doc('file:///o:/github/mtpo-schematron/test/xspec/context-d1e49.xml')"/>
+                          select="doc('file:///O:/github/mtpo-schematron/test/xspec/context-d1e109.xml')"/>
             <xsl:variable name="impl:context" select="$impl:context-doc"/>
             <xsl:apply-templates select="$impl:context"/>
          </xsl:variable>
@@ -288,11 +288,11 @@
       <xsl:message>..incorrect-app-id</xsl:message>
       <x:scenario>
          <x:label>incorrect-app-id</x:label>
-         <x:context href="file:///o:/github/mtpo-schematron/test/xspec/context-d1e67.xml"/>
+         <x:context href="file:///O:/github/mtpo-schematron/test/xspec/context-d1e127.xml"/>
          <xsl:variable name="x:result" as="item()*">
             <xsl:variable name="impl:context-doc"
                           as="document-node()"
-                          select="doc('file:///o:/github/mtpo-schematron/test/xspec/context-d1e67.xml')"/>
+                          select="doc('file:///O:/github/mtpo-schematron/test/xspec/context-d1e127.xml')"/>
             <xsl:variable name="impl:context" select="$impl:context-doc"/>
             <xsl:apply-templates select="$impl:context"/>
          </xsl:variable>

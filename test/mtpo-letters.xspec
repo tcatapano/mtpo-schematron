@@ -5,23 +5,36 @@
     schematron="../schema/mtpo-letters.sch">
     <x:scenario label="mtpo-letters-00015">
         <x:scenario label="correct-app-anchor-id-match">
-            <x:context><tei:p><tei:anchor xml:id="ac0004"/>July 28, 1862<tei:app from="ac0004"
-                xml:id="ap0004"><tei:lem>July 28, 1862</tei:lem>
-                <tei:rdg>July (28, &#x2019;62?)</tei:rdg>
-            </tei:app></tei:p>
-            </x:context>
+                <x:context>
+                    <tei:div>
+                        <tei:opener>
+                            <tei:salute rend="noindent"><tei:anchor xml:id="ac0005"/>My Dear Bro:</tei:salute></tei:opener>             
+                        <tei:note place="inline" resp="MTP" type="ed" xml:id="de0622"><tei:hi rend="italic">one or more lines of text may be lost here</tei:hi></tei:note>
+                        <tei:p rend="text-indent:2">When<tei:app from="ac0005" xml:id="ap0005"><tei:lem>My Dear Bro: &#x7C; &#x5B;<hi rend="italic">one or more lines of text may be lost here</hi>&#x5D; &#x7C; When</tei:lem>
+                            <tei:rdg>&#xA0;.&#xA0;.&#xA0;.&#xA0;.&#xA0;.&#xA0;.&#xA0;.&#xA0;.&#xA0;.&#xA0;. &#x7C; When <tei:note place="inline" resp="MTP" type="ed" xml:id="ed0004">the ellipsis in the typescript is on a line by itself and may stand for more missing text than simply the missing salutation, which is here supplied by conjecture</tei:note></tei:rdg>
+                        </tei:app> you write that <tei:anchor xml:id="ac0006"/>Proclamation,<tei:app from="ac0006" xml:id="ap0006"><lem>Proclamation,</lem>
+                            <tei:rdg>Proclamation <tei:note place="inline" resp="MTP" type="ed" xml:id="ed0005">followed by extra letter space, conjecturally because a typed comma failed to print</tei:note></tei:rdg>
+                        </tei:app> hadn’t you better advertise it in the Esmeralda Star, too,&#x2014;provided we shall be represented?</tei:p>
+                    </tei:div>
+                </x:context>                       
             <x:expect-not-assert label="mtpo-letters-00015"/>
         </x:scenario>
         <x:scenario label="incorrect-app-anchor-id-match">
             <x:context>
-                <tei:p><tei:anchor xml:id="ac0004"/>July 28, 1862<tei:app from="ac0005"
-                    xml:id="ap0004"><tei:lem>July 28, 1862</tei:lem>
-                    <tei:rdg>July (28, &#x2019;62?)</tei:rdg>
-                </tei:app>
-                </tei:p>
+                <tei:div>
+                    <tei:opener>
+                        <tei:salute rend="noindent"><tei:anchor xml:id="ac0005"/>My Dear Bro:</tei:salute></tei:opener>             
+                    <tei:note place="inline" resp="MTP" type="ed" xml:id="de0622"><tei:hi rend="italic">one or more lines of text may be lost here</tei:hi></tei:note>
+                    <tei:p rend="text-indent:2">When<tei:app from="ac0005x" xml:id="ap0005"><tei:lem>My Dear Bro: &#x7C; &#x5B;<hi rend="italic">one or more lines of text may be lost here</hi>&#x5D; &#x7C; When</tei:lem>
+                        <tei:rdg>&#xA0;.&#xA0;.&#xA0;.&#xA0;.&#xA0;.&#xA0;.&#xA0;.&#xA0;.&#xA0;.&#xA0;. &#x7C; When <tei:note place="inline" resp="MTP" type="ed" xml:id="ed0004">the ellipsis in the typescript is on a line by itself and may stand for more missing text than simply the missing salutation, which is here supplied by conjecture</tei:note></tei:rdg>
+                    </tei:app> you write that <tei:anchor xml:id="ac0006"/>Proclamation,<tei:app from="ac0006" xml:id="ap0006"><lem>Proclamation,</lem>
+                        <tei:rdg>Proclamation <tei:note place="inline" resp="MTP" type="ed" xml:id="ed0005">followed by extra letter space, conjecturally because a typed comma failed to print</tei:note></tei:rdg>
+                    </tei:app> hadn’t you better advertise it in the Esmeralda Star, too,&#x2014;provided we shall be represented?</tei:p>
+                </tei:div>
             </x:context>
             <x:expect-assert label="mtpo-letters-00015"/>
         </x:scenario>
+        
     </x:scenario>
     <x:scenario label="mtpo-letters-00016">
         <x:scenario label="correct-app-id">
@@ -32,6 +45,7 @@
             </x:context>
             <x:expect-not-assert label="mtpo-letters-00016"/>
         </x:scenario>
+        
         <x:scenario label="incorrect-app-id">
             <x:context>
                 <tei:p><tei:anchor xml:id="ac0004"/>July 28, 1862<tei:app from="ac0004"
