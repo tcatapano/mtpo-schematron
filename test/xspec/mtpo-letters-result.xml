@@ -7,7 +7,7 @@
           xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
           xmlns:tei="http://www.tei-c.org/ns/1.0"
           stylesheet="O:/github/mtpo-schematron/test/../schema/mtpo-letters.sch-compiled.xsl"
-          date="2018-04-10T11:22:01.169-07:00"
+          date="2018-04-10T15:23:24.806-07:00"
           xspec="file:/O:/github/mtpo-schematron/test/mtpo-letters.xspec"
           schematron="file:/O:/github/mtpo-schematron/schema/mtpo-letters.sch">
    <x:scenario>
@@ -31,6 +31,10 @@
                <svrl:active-pattern document="file:///O:/github/mtpo-schematron/test/xspec/context-d1e8.xml"/>
                <svrl:fired-rule context="tei:app"/>
                <svrl:fired-rule context="tei:app"/>
+               <svrl:active-pattern document="file:///O:/github/mtpo-schematron/test/xspec/context-d1e8.xml"/>
+               <svrl:fired-rule context="tei:note"/>
+               <svrl:fired-rule context="tei:note"/>
+               <svrl:fired-rule context="tei:note"/>
             </svrl:schematron-output>
          </x:result>
          <x:test successful="true">
@@ -62,6 +66,10 @@
                   <svrl:text>In a letter file the inline lemma text for an apparatus entry must be preceded by an anchor element whose id attribute matches the from attribute of the app element that follows the text.</svrl:text>
                </svrl:failed-assert>
                <svrl:fired-rule context="tei:app"/>
+               <svrl:active-pattern document="file:///O:/github/mtpo-schematron/test/xspec/context-d1e57.xml"/>
+               <svrl:fired-rule context="tei:note"/>
+               <svrl:fired-rule context="tei:note"/>
+               <svrl:fired-rule context="tei:note"/>
             </svrl:schematron-output>
          </x:result>
          <x:test successful="true">
@@ -90,6 +98,7 @@
                <svrl:ns-prefix-in-attribute-values uri="http://www.w3.org/XML/1998/namespace" prefix="xml"/>
                <svrl:active-pattern document="file:///O:/github/mtpo-schematron/test/xspec/context-d1e109.xml"/>
                <svrl:fired-rule context="tei:app"/>
+               <svrl:active-pattern document="file:///O:/github/mtpo-schematron/test/xspec/context-d1e109.xml"/>
             </svrl:schematron-output>
          </x:result>
          <x:test successful="true">
@@ -120,10 +129,159 @@
                                    location="/*:p[namespace-uri()='http://www.tei-c.org/ns/1.0'][1]/*:app[namespace-uri()='http://www.tei-c.org/ns/1.0'][1]">
                   <svrl:text>The id attribute for the app element should be in the format a#####</svrl:text>
                </svrl:failed-assert>
+               <svrl:active-pattern document="file:///O:/github/mtpo-schematron/test/xspec/context-d1e127.xml"/>
             </svrl:schematron-output>
          </x:result>
          <x:test successful="true">
             <x:label>mtpo-letters-00016 assert</x:label>
+            <x:expect select="()"/>
+         </x:test>
+      </x:scenario>
+   </x:scenario>
+   <x:scenario>
+      <x:label>mtpo-letters-00017</x:label>
+      <x:scenario>
+         <x:label>correct-note-type</x:label>
+         <x:context href="file:///O:/github/mtpo-schematron/test/xspec/context-d1e150.xml"/>
+         <x:result>
+            <svrl:schematron-output xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                                    xmlns:saxon="http://saxon.sf.net/"
+                                    xmlns:schold="http://www.ascc.net/xml/schematron"
+                                    xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+                                    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                                    title=""
+                                    schemaVersion=""><!--   
+		   
+		   
+		 -->
+               <svrl:ns-prefix-in-attribute-values uri="http://www.tei-c.org/ns/1.0" prefix="tei"/>
+               <svrl:ns-prefix-in-attribute-values uri="http://www.w3.org/XML/1998/namespace" prefix="xml"/>
+               <svrl:active-pattern document="file:///O:/github/mtpo-schematron/test/xspec/context-d1e150.xml"/>
+               <svrl:active-pattern document="file:///O:/github/mtpo-schematron/test/xspec/context-d1e150.xml"/>
+               <svrl:fired-rule context="tei:note"/>
+               <svrl:fired-rule context="tei:note"/>
+               <svrl:fired-rule context="tei:note"/>
+            </svrl:schematron-output>
+         </x:result>
+         <x:test successful="true">
+            <x:label>mtpo-letters-00017 not assert</x:label>
+            <x:expect select="()"/>
+         </x:test>
+      </x:scenario>
+      <x:scenario>
+         <x:label>incorrect-note-type</x:label>
+         <x:context href="file:///O:/github/mtpo-schematron/test/xspec/context-d1e170.xml"/>
+         <x:result>
+            <svrl:schematron-output xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                                    xmlns:saxon="http://saxon.sf.net/"
+                                    xmlns:schold="http://www.ascc.net/xml/schematron"
+                                    xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+                                    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                                    title=""
+                                    schemaVersion=""><!--   
+		   
+		   
+		 -->
+               <svrl:ns-prefix-in-attribute-values uri="http://www.tei-c.org/ns/1.0" prefix="tei"/>
+               <svrl:ns-prefix-in-attribute-values uri="http://www.w3.org/XML/1998/namespace" prefix="xml"/>
+               <svrl:active-pattern document="file:///O:/github/mtpo-schematron/test/xspec/context-d1e170.xml"/>
+               <svrl:active-pattern document="file:///O:/github/mtpo-schematron/test/xspec/context-d1e170.xml"/>
+               <svrl:fired-rule context="tei:note"/>
+               <svrl:failed-assert test="@type = 'an' or @type = 'ed' or @type = 'au'"
+                                   id="letters-0002.17"
+                                   location="/*:p[namespace-uri()='http://www.tei-c.org/ns/1.0'][1]/*:note[namespace-uri()='http://www.tei-c.org/ns/1.0'][1]">
+                  <svrl:text>Every note element in the body must have a type value of one of 'ed', 'an', or 'au'</svrl:text>
+               </svrl:failed-assert>
+               <svrl:fired-rule context="tei:note"/>
+               <svrl:failed-assert test="@type = 'an' or @type = 'ed' or @type = 'au'"
+                                   id="letters-0002.17"
+                                   location="/*:p[namespace-uri()='http://www.tei-c.org/ns/1.0'][1]/*:note[namespace-uri()='http://www.tei-c.org/ns/1.0'][2]">
+                  <svrl:text>Every note element in the body must have a type value of one of 'ed', 'an', or 'au'</svrl:text>
+               </svrl:failed-assert>
+               <svrl:fired-rule context="tei:note"/>
+               <svrl:failed-assert test="@type = 'an' or @type = 'ed' or @type = 'au'"
+                                   id="letters-0002.17"
+                                   location="/*:p[namespace-uri()='http://www.tei-c.org/ns/1.0'][1]/*:note[namespace-uri()='http://www.tei-c.org/ns/1.0'][3]">
+                  <svrl:text>Every note element in the body must have a type value of one of 'ed', 'an', or 'au'</svrl:text>
+               </svrl:failed-assert>
+            </svrl:schematron-output>
+         </x:result>
+         <x:test successful="true">
+            <x:label>mtpo-letters-00017 assert</x:label>
+            <x:expect select="()"/>
+         </x:test>
+      </x:scenario>
+   </x:scenario>
+   <x:scenario>
+      <x:label>mtpo-letters-00017</x:label>
+      <x:scenario>
+         <x:label>correct-note-type</x:label>
+         <x:context href="file:///O:/github/mtpo-schematron/test/xspec/context-d1e194.xml"/>
+         <x:result>
+            <svrl:schematron-output xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                                    xmlns:saxon="http://saxon.sf.net/"
+                                    xmlns:schold="http://www.ascc.net/xml/schematron"
+                                    xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+                                    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                                    title=""
+                                    schemaVersion=""><!--   
+		   
+		   
+		 -->
+               <svrl:ns-prefix-in-attribute-values uri="http://www.tei-c.org/ns/1.0" prefix="tei"/>
+               <svrl:ns-prefix-in-attribute-values uri="http://www.w3.org/XML/1998/namespace" prefix="xml"/>
+               <svrl:active-pattern document="file:///O:/github/mtpo-schematron/test/xspec/context-d1e194.xml"/>
+               <svrl:active-pattern document="file:///O:/github/mtpo-schematron/test/xspec/context-d1e194.xml"/>
+               <svrl:fired-rule context="tei:note"/>
+               <svrl:fired-rule context="tei:note"/>
+               <svrl:fired-rule context="tei:note"/>
+            </svrl:schematron-output>
+         </x:result>
+         <x:test successful="true">
+            <x:label>mtpo-letters-00017 not assert</x:label>
+            <x:expect select="()"/>
+         </x:test>
+      </x:scenario>
+      <x:scenario>
+         <x:label>incorrect-note-type</x:label>
+         <x:context href="file:///O:/github/mtpo-schematron/test/xspec/context-d1e214.xml"/>
+         <x:result>
+            <svrl:schematron-output xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                                    xmlns:saxon="http://saxon.sf.net/"
+                                    xmlns:schold="http://www.ascc.net/xml/schematron"
+                                    xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+                                    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                                    title=""
+                                    schemaVersion=""><!--   
+		   
+		   
+		 -->
+               <svrl:ns-prefix-in-attribute-values uri="http://www.tei-c.org/ns/1.0" prefix="tei"/>
+               <svrl:ns-prefix-in-attribute-values uri="http://www.w3.org/XML/1998/namespace" prefix="xml"/>
+               <svrl:active-pattern document="file:///O:/github/mtpo-schematron/test/xspec/context-d1e214.xml"/>
+               <svrl:active-pattern document="file:///O:/github/mtpo-schematron/test/xspec/context-d1e214.xml"/>
+               <svrl:fired-rule context="tei:note"/>
+               <svrl:failed-assert test="@type = 'an' or @type = 'ed' or @type = 'au'"
+                                   id="letters-0002.17"
+                                   location="/*:p[namespace-uri()='http://www.tei-c.org/ns/1.0'][1]/*:note[namespace-uri()='http://www.tei-c.org/ns/1.0'][1]">
+                  <svrl:text>Every note element in the body must have a type value of one of 'ed', 'an', or 'au'</svrl:text>
+               </svrl:failed-assert>
+               <svrl:fired-rule context="tei:note"/>
+               <svrl:failed-assert test="@type = 'an' or @type = 'ed' or @type = 'au'"
+                                   id="letters-0002.17"
+                                   location="/*:p[namespace-uri()='http://www.tei-c.org/ns/1.0'][1]/*:note[namespace-uri()='http://www.tei-c.org/ns/1.0'][2]">
+                  <svrl:text>Every note element in the body must have a type value of one of 'ed', 'an', or 'au'</svrl:text>
+               </svrl:failed-assert>
+               <svrl:fired-rule context="tei:note"/>
+               <svrl:failed-assert test="@type = 'an' or @type = 'ed' or @type = 'au'"
+                                   id="letters-0002.17"
+                                   location="/*:p[namespace-uri()='http://www.tei-c.org/ns/1.0'][1]/*:note[namespace-uri()='http://www.tei-c.org/ns/1.0'][3]">
+                  <svrl:text>Every note element in the body must have a type value of one of 'ed', 'an', or 'au'</svrl:text>
+               </svrl:failed-assert>
+            </svrl:schematron-output>
+         </x:result>
+         <x:test successful="true">
+            <x:label>mtpo-letters-00017 assert</x:label>
             <x:expect select="()"/>
          </x:test>
       </x:scenario>

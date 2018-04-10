@@ -9,4 +9,10 @@
             <sch:assert id="letters-0002.16" test="matches(@xml:id, '^ap[0-9]{4}$')">The id attribute for the app element should be in the format a#####</sch:assert>
         </sch:rule>          
     </sch:pattern>
+    <sch:pattern>
+        <sch:rule context="tei:note">
+            <sch:assert id="letters-0002.17" test="@type = 'an' or @type = 'ed' or @type = 'au'">Every note element in the body must have a type value of one of 'ed', 'an', or 'au'</sch:assert>
+            
+        </sch:rule>
+    </sch:pattern>
 </sch:schema>

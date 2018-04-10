@@ -57,4 +57,52 @@
             <x:expect-assert label="mtpo-letters-00016"/>
         </x:scenario>
     </x:scenario>
+    <x:scenario label="mtpo-letters-00017">
+        <x:scenario label="correct-note-type">
+            <x:context><tei:p><tei:note
+                xml:id="an0006" type="an" place="foot" n="6"><p>Annotation</p></tei:note>
+                <tei:note
+                    xml:id="an0006" type="ed" place="foot" n="7"><p>Editorial Note</p></tei:note>
+                <tei:note
+                    xml:id="an0006" type="au" place="foot" n="8"><p>Authorial Note</p></tei:note></tei:p>
+            </x:context>
+            <x:expect-not-assert label="mtpo-letters-00017"/>
+        </x:scenario>
+        
+        <x:scenario label="incorrect-note-type">
+            <x:context>
+                <tei:p><tei:note
+                    xml:id="an0006" type="annotation" place="foot" n="6"><p>Annotation</p></tei:note>
+                    <tei:note
+                        xml:id="an0006" type="editor" place="foot" n="7"><p>Editorial Note</p></tei:note>
+                    <tei:note
+                        xml:id="an0006" type="author" place="foot" n="8"><p>Authorial Note</p></tei:note></tei:p>
+            </x:context>
+            <x:expect-assert label="mtpo-letters-00017"/>
+        </x:scenario>
+    </x:scenario>
+    <x:scenario label="mtpo-letters-00017">
+        <x:scenario label="correct-note-type">
+            <x:context><tei:p><tei:note
+                xml:id="an0006" type="an" place="foot" n="6"><p>Annotation</p></tei:note>
+                <tei:note
+                    xml:id="an0006" type="ed" place="foot" n="7"><p>Editorial Note</p></tei:note>
+                <tei:note
+                    xml:id="an0006" type="au" place="foot" n="8"><p>Authorial Note</p></tei:note></tei:p>
+            </x:context>
+            <x:expect-not-assert label="mtpo-letters-00017"/>
+        </x:scenario>
+        
+        <x:scenario label="incorrect-note-type">
+            <x:context>
+                <tei:p><tei:note
+                    xml:id="an0006" type="annotation" place="foot" n="6"><p>Annotation</p></tei:note>
+                    <tei:note
+                        xml:id="an0006" type="editor" place="foot" n="7"><p>Editorial Note</p></tei:note>
+                    <tei:note
+                        xml:id="an0006" type="author" place="foot" n="8"><p>Authorial Note</p></tei:note></tei:p>
+            </x:context>
+            <x:expect-assert label="mtpo-letters-00017"/>
+        </x:scenario>
+    </x:scenario>
 </x:description>
